@@ -7,6 +7,7 @@ import java.util.Properties;
 
 public class Configs {
     public static String dbHost;
+    public static String dbPort;
     public static String dbUsername;
     public static String dbPassword;
     public static String dbName;
@@ -22,6 +23,7 @@ public class Configs {
         }
 
         dbHost = prop.getProperty("SERVER_MANAGEMENT_HOST");
+        dbPort = prop.getProperty("SERVER_MANAGEMENT_PORT");
         dbUsername = prop.getProperty("SERVER_MANAGEMENT_USERNAME");
         dbPassword = prop.getProperty("SERVER_MANAGEMENT_PASSWORD");
         dbName = prop.getProperty("SERVER_MANAGEMENT_DB");

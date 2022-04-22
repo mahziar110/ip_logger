@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.io.*;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 
@@ -41,10 +43,16 @@ public class Controller {
         String location = json.get("loc").toString().replaceAll("\"", "");
         String org = json.get("org").toString().replaceAll("\"", "");
 
-        System.out.println(country + city + location + org);
+        Map<String, String> ipInfo = new HashMap<String, String>();
+        ipInfo.put("ip", ip);
+        ipInfo.put("country", country);
+        ipInfo.put("city", city);
+        ipInfo.put("location", location);
+        ipInfo.put("org", org);
+
+        Model.SubmitIpInDB(ipInfo);
 
         response.result = true;
-        System.out.println(Configs.dbHost);
         return response;
     }
 }
